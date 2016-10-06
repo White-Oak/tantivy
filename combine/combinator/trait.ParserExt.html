@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ParserExt` trait in crate `combine`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ParserExt">
+
+    <title>combine::combinator::ParserExt - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>combine</a>::<wbr><a href='index.html'>combinator</a></p><script>window.sidebarCurrent = {name: 'ParserExt', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>combine</a>::<wbr><a href='index.html'>combinator</a>::<wbr><a class='trait' href=''>ParserExt</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1063' class='srclink' href='../../src/combine/combinator.rs.html#1342-1576' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait ParserExt: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> {
+    fn <a href='#method.with' class='fnname'>with</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.With.html' title='combine::combinator::With'>With</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span> { ... }
+    fn <a href='#method.skip' class='fnname'>skip</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.Skip.html' title='combine::combinator::Skip'>Skip</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span> { ... }
+    fn <a href='#method.and' class='fnname'>and</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.And.html' title='combine::combinator::And'>And</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span> { ... }
+    fn <a href='#method.or' class='fnname'>or</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.Or.html' title='combine::combinator::Or'>Or</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span> { ... }
+    fn <a href='#method.then' class='fnname'>then</a>&lt;N,&nbsp;F&gt;(self, f: F) -&gt; <a class='struct' href='../../combine/combinator/struct.Then.html' title='combine::combinator::Then'>Then</a>&lt;Self,&nbsp;F&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>(Self::Output) -&gt; N, N: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span> { ... }
+    fn <a href='#method.map' class='fnname'>map</a>&lt;F,&nbsp;B&gt;(self, f: F) -&gt; <a class='struct' href='../../combine/combinator/struct.Map.html' title='combine::combinator::Map'>Map</a>&lt;Self,&nbsp;F&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>(Self::Output) -&gt; B</span> { ... }
+    fn <a href='#method.message' class='fnname'>message</a>&lt;S&gt;(self, msg: S) -&gt; <a class='struct' href='../../combine/combinator/struct.Message.html' title='combine::combinator::Message'>Message</a>&lt;Self&gt; <span class='where'>where S: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='enum' href='../../combine/primitives/enum.Info.html' title='combine::primitives::Info'>Info</a>&lt;Self::Input::Item,&nbsp;Self::Input::Range&gt;&gt;</span> { ... }
+    fn <a href='#method.expected' class='fnname'>expected</a>&lt;S&gt;(self, msg: S) -&gt; <a class='struct' href='../../combine/combinator/struct.Expected.html' title='combine::combinator::Expected'>Expected</a>&lt;Self&gt; <span class='where'>where S: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='enum' href='../../combine/primitives/enum.Info.html' title='combine::primitives::Info'>Info</a>&lt;Self::Input::Item,&nbsp;Self::Input::Range&gt;&gt;</span> { ... }
+    fn <a href='#method.and_then' class='fnname'>and_then</a>&lt;F,&nbsp;O,&nbsp;E&gt;(self, f: F) -&gt; <a class='struct' href='../../combine/combinator/struct.AndThen.html' title='combine::combinator::AndThen'>AndThen</a>&lt;Self,&nbsp;F&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>(Self::Output) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;O,&nbsp;E&gt;, E: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='enum' href='../../combine/primitives/enum.Error.html' title='combine::primitives::Error'>Error</a>&lt;Self::Input::Item,&nbsp;Self::Input::Range&gt;&gt;</span> { ... }
+    fn <a href='#method.iter' class='fnname'>iter</a>(self, input: <a class='struct' href='../../combine/primitives/struct.State.html' title='combine::primitives::State'>State</a>&lt;Self::Input&gt;) -&gt; <a class='struct' href='../../combine/combinator/struct.Iter.html' title='combine::combinator::Iter'>Iter</a>&lt;Self&gt; { ... }
+}</pre><div class='docblock'><p>Extension trait which provides functions that are more conveniently used through method calls</p>
+</div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.with' class='method stab '><span id='with.v' class='invisible'><code>fn <a href='#method.with' class='fnname'>with</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.With.html' title='combine::combinator::With'>With</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span></code></span></h3><div class='docblock'><p>Discards the value of the <code>self</code> parser and returns the value of <code>p</code>
+Fails if any of the parsers fails</p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>digit</span>()
+     .<span class='ident'>with</span>(<span class='ident'>token</span>(<span class='string'>&#39;i&#39;</span>))
+     .<span class='ident'>parse</span>(<span class='string'>&quot;9i&quot;</span>)
+     .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='number'>0</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>(<span class='string'>&#39;i&#39;</span>));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.skip' class='method stab '><span id='skip.v' class='invisible'><code>fn <a href='#method.skip' class='fnname'>skip</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.Skip.html' title='combine::combinator::Skip'>Skip</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span></code></span></h3><div class='docblock'><p>Discards the value of the <code>p</code> parser and returns the value of <code>self</code>
+Fails if any of the parsers fails</p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>digit</span>()
+     .<span class='ident'>skip</span>(<span class='ident'>token</span>(<span class='string'>&#39;i&#39;</span>))
+     .<span class='ident'>parse</span>(<span class='string'>&quot;9i&quot;</span>)
+     .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='number'>0</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>(<span class='string'>&#39;9&#39;</span>));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.and' class='method stab '><span id='and.v' class='invisible'><code>fn <a href='#method.and' class='fnname'>and</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.And.html' title='combine::combinator::And'>And</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span></code></span></h3><div class='docblock'><p>Parses with <code>self</code> followed by <code>p</code>
+Succeeds if both parsers succeed, otherwise fails
+Returns a tuple with both values on success</p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>digit</span>()
+     .<span class='ident'>and</span>(<span class='ident'>token</span>(<span class='string'>&#39;i&#39;</span>))
+     .<span class='ident'>parse</span>(<span class='string'>&quot;9i&quot;</span>)
+     .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='number'>0</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>((<span class='string'>&#39;9&#39;</span>, <span class='string'>&#39;i&#39;</span>)));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.or' class='method stab '><span id='or.v' class='invisible'><code>fn <a href='#method.or' class='fnname'>or</a>&lt;P2&gt;(self, p: P2) -&gt; <a class='struct' href='../../combine/combinator/struct.Or.html' title='combine::combinator::Or'>Or</a>&lt;Self,&nbsp;P2&gt; <span class='where'>where P2: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span></code></span></h3><div class='docblock'><p>Returns a parser which attempts to parse using <code>self</code>. If <code>self</code> fails without consuming any
+input it tries to consume the same input using <code>p</code>.</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>parser</span> <span class='op'>=</span> <span class='ident'>string</span>(<span class='string'>&quot;let&quot;</span>)
+    .<span class='ident'>or</span>(<span class='ident'>digit</span>().<span class='ident'>map</span>(<span class='op'>|</span>_<span class='op'>|</span> <span class='string'>&quot;digit&quot;</span>))
+    .<span class='ident'>or</span>(<span class='ident'>string</span>(<span class='string'>&quot;led&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>parser</span>.<span class='ident'>parse</span>(<span class='string'>&quot;let&quot;</span>), <span class='prelude-val'>Ok</span>((<span class='string'>&quot;let&quot;</span>, <span class='string'>&quot;&quot;</span>)));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>parser</span>.<span class='ident'>parse</span>(<span class='string'>&quot;1&quot;</span>), <span class='prelude-val'>Ok</span>((<span class='string'>&quot;digit&quot;</span>, <span class='string'>&quot;&quot;</span>)));
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>parser</span>.<span class='ident'>parse</span>(<span class='string'>&quot;led&quot;</span>).<span class='ident'>is_err</span>());
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>parser2</span> <span class='op'>=</span> <span class='ident'>string</span>(<span class='string'>&quot;two&quot;</span>).<span class='ident'>or</span>(<span class='ident'>string</span>(<span class='string'>&quot;three&quot;</span>));
+<span class='comment'>// Fails as the parser for &quot;two&quot; consumes the first &#39;t&#39; before failing</span>
+<span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>parser2</span>.<span class='ident'>parse</span>(<span class='string'>&quot;three&quot;</span>).<span class='ident'>is_err</span>());
+
+<span class='comment'>// Use &#39;try&#39; to make failing parsers always act as if they have not consumed any input</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>parser3</span> <span class='op'>=</span> <span class='ident'>try</span>(<span class='ident'>string</span>(<span class='string'>&quot;two&quot;</span>)).<span class='ident'>or</span>(<span class='ident'>try</span>(<span class='ident'>string</span>(<span class='string'>&quot;three&quot;</span>)));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>parser3</span>.<span class='ident'>parse</span>(<span class='string'>&quot;three&quot;</span>), <span class='prelude-val'>Ok</span>((<span class='string'>&quot;three&quot;</span>, <span class='string'>&quot;&quot;</span>)));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.then' class='method stab '><span id='then.v' class='invisible'><code>fn <a href='#method.then' class='fnname'>then</a>&lt;N,&nbsp;F&gt;(self, f: F) -&gt; <a class='struct' href='../../combine/combinator/struct.Then.html' title='combine::combinator::Then'>Then</a>&lt;Self,&nbsp;F&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>(Self::Output) -&gt; N, N: <a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&lt;Input=Self::Input&gt;</span></code></span></h3><div class='docblock'><p>Parses using <code>self</code> and then passes the value to <code>f</code> which returns a parser used to parse
+the rest of the input</p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>digit</span>()
+     .<span class='ident'>then</span>(<span class='op'>|</span><span class='ident'>d</span><span class='op'>|</span> <span class='ident'>parser</span>(<span class='kw'>move</span> <span class='op'>|</span><span class='ident'>input</span><span class='op'>|</span> {
+         <span class='kw'>if</span> <span class='ident'>d</span> <span class='op'>==</span> <span class='string'>&#39;9&#39;</span> {
+             <span class='prelude-val'>Ok</span>((<span class='number'>9</span>, <span class='ident'>Consumed</span>::<span class='ident'>Empty</span>(<span class='ident'>input</span>)))
+         }
+         <span class='kw'>else</span> {
+             <span class='kw'>let</span> <span class='ident'>err</span> <span class='op'>=</span> <span class='ident'>ParseError</span>::<span class='ident'>new</span>(<span class='ident'>input</span>.<span class='ident'>position</span>, <span class='ident'>Error</span>::<span class='ident'>Message</span>(<span class='string'>&quot;Not a nine&quot;</span>.<span class='ident'>into</span>()));
+             <span class='prelude-val'>Err</span>((<span class='ident'>Consumed</span>::<span class='ident'>Empty</span>(<span class='ident'>err</span>)))
+         }
+     }))
+     .<span class='ident'>parse</span>(<span class='string'>&quot;9&quot;</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>((<span class='number'>9</span>, <span class='string'>&quot;&quot;</span>)));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.map' class='method stab '><span id='map.v' class='invisible'><code>fn <a href='#method.map' class='fnname'>map</a>&lt;F,&nbsp;B&gt;(self, f: F) -&gt; <a class='struct' href='../../combine/combinator/struct.Map.html' title='combine::combinator::Map'>Map</a>&lt;Self,&nbsp;F&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>(Self::Output) -&gt; B</span></code></span></h3><div class='docblock'><p>Uses <code>f</code> to map over the parsed value</p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>digit</span>()
+     .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>c</span><span class='op'>|</span> <span class='ident'>c</span> <span class='op'>==</span> <span class='string'>&#39;9&#39;</span>)
+     .<span class='ident'>parse</span>(<span class='string'>&quot;9&quot;</span>)
+     .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='number'>0</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>(<span class='bool-val'>true</span>));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.message' class='method stab '><span id='message.v' class='invisible'><code>fn <a href='#method.message' class='fnname'>message</a>&lt;S&gt;(self, msg: S) -&gt; <a class='struct' href='../../combine/combinator/struct.Message.html' title='combine::combinator::Message'>Message</a>&lt;Self&gt; <span class='where'>where S: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='enum' href='../../combine/primitives/enum.Info.html' title='combine::primitives::Info'>Info</a>&lt;Self::Input::Item,&nbsp;Self::Input::Range&gt;&gt;</span></code></span></h3><div class='docblock'><p>Parses with <code>self</code> and if it fails, adds the message <code>msg</code> to the error</p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>token</span>(<span class='string'>&#39;9&#39;</span>)
+     .<span class='ident'>message</span>(<span class='string'>&quot;Not a nine&quot;</span>)
+     .<span class='ident'>parse</span>(<span class='string'>&quot;8&quot;</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Err</span>(<span class='ident'>ParseError</span> {
+     <span class='ident'>position</span>: <span class='op'>&lt;</span><span class='ident'>char</span> <span class='kw'>as</span> <span class='ident'>Positioner</span><span class='op'>&gt;</span>::<span class='ident'>start</span>(),
+     <span class='ident'>errors</span>: <span class='macro'>vec</span><span class='macro'>!</span>[
+         <span class='ident'>Error</span>::<span class='ident'>Unexpected</span>(<span class='string'>&#39;8&#39;</span>.<span class='ident'>into</span>()),
+         <span class='ident'>Error</span>::<span class='ident'>Expected</span>(<span class='string'>&#39;9&#39;</span>.<span class='ident'>into</span>()),
+         <span class='ident'>Error</span>::<span class='ident'>Message</span>(<span class='string'>&quot;Not a nine&quot;</span>.<span class='ident'>into</span>())
+     ]
+ }));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.expected' class='method stab '><span id='expected.v' class='invisible'><code>fn <a href='#method.expected' class='fnname'>expected</a>&lt;S&gt;(self, msg: S) -&gt; <a class='struct' href='../../combine/combinator/struct.Expected.html' title='combine::combinator::Expected'>Expected</a>&lt;Self&gt; <span class='where'>where S: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='enum' href='../../combine/primitives/enum.Info.html' title='combine::primitives::Info'>Info</a>&lt;Self::Input::Item,&nbsp;Self::Input::Range&gt;&gt;</span></code></span></h3><div class='docblock'><p>Parses with <code>self</code> and if it fails without consuming any input any expected errors are
+replaced by <code>msg</code>. <code>msg</code> is then used in error messages as &quot;Expected <code>msg</code>&quot;.</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>token</span>(<span class='string'>&#39;9&#39;</span>)
+    .<span class='ident'>expected</span>(<span class='string'>&quot;nine&quot;</span>)
+    .<span class='ident'>parse</span>(<span class='string'>&quot;8&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Err</span>(<span class='ident'>ParseError</span> {
+    <span class='ident'>position</span>: <span class='op'>&lt;</span><span class='ident'>char</span> <span class='kw'>as</span> <span class='ident'>Positioner</span><span class='op'>&gt;</span>::<span class='ident'>start</span>(),
+    <span class='ident'>errors</span>: <span class='macro'>vec</span><span class='macro'>!</span>[<span class='ident'>Error</span>::<span class='ident'>Unexpected</span>(<span class='string'>&#39;8&#39;</span>.<span class='ident'>into</span>()), <span class='ident'>Error</span>::<span class='ident'>Expected</span>(<span class='string'>&quot;nine&quot;</span>.<span class='ident'>into</span>())]
+}));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.and_then' class='method stab '><span id='and_then.v' class='invisible'><code>fn <a href='#method.and_then' class='fnname'>and_then</a>&lt;F,&nbsp;O,&nbsp;E&gt;(self, f: F) -&gt; <a class='struct' href='../../combine/combinator/struct.AndThen.html' title='combine::combinator::AndThen'>AndThen</a>&lt;Self,&nbsp;F&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnMut.html' title='core::ops::FnMut'>FnMut</a>(Self::Output) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;O,&nbsp;E&gt;, E: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a class='enum' href='../../combine/primitives/enum.Error.html' title='combine::primitives::Error'>Error</a>&lt;Self::Input::Item,&nbsp;Self::Input::Range&gt;&gt;</span></code></span></h3><div class='docblock'><p>Parses with <code>self</code> and applies <code>f</code> on the result if <code>self</code> parses successfully
+<code>f</code> may optionally fail with an error which is automatically converted to a <code>ParseError</code></p>
+
+<pre class='rust rust-example-rendered'>
+ <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>parser</span> <span class='op'>=</span> <span class='ident'>many1</span>(<span class='ident'>digit</span>())
+     .<span class='ident'>and_then</span>(<span class='op'>|</span><span class='ident'>s</span>: <span class='ident'>String</span><span class='op'>|</span> <span class='ident'>s</span>.<span class='ident'>parse</span>::<span class='op'>&lt;</span><span class='ident'>i32</span><span class='op'>&gt;</span>());
+ <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>parser</span>.<span class='ident'>parse</span>(<span class='string'>&quot;1234&quot;</span>);
+ <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>((<span class='number'>1234</span>, <span class='string'>&quot;&quot;</span>)));
+ <span class='kw'>let</span> <span class='ident'>err</span> <span class='op'>=</span> <span class='ident'>parser</span>.<span class='ident'>parse</span>(<span class='string'>&quot;abc&quot;</span>);
+ <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>err</span>.<span class='ident'>is_err</span>());<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h3 id='method.iter' class='method stab '><span id='iter.v' class='invisible'><code>fn <a href='#method.iter' class='fnname'>iter</a>(self, input: <a class='struct' href='../../combine/primitives/struct.State.html' title='combine::primitives::State'>State</a>&lt;Self::Input&gt;) -&gt; <a class='struct' href='../../combine/combinator/struct.Iter.html' title='combine::combinator::Iter'>Iter</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Creates an iterator from a parser and a state. Can be used as an alternative to <code>many</code> when
+collecting directly into a <code>FromIterator</code> type is not desirable</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffer</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
+<span class='kw'>let</span> <span class='ident'>number</span> <span class='op'>=</span> <span class='ident'>parser</span>(<span class='op'>|</span><span class='ident'>input</span><span class='op'>|</span> {
+    <span class='ident'>buffer</span>.<span class='ident'>clear</span>();
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>iter</span> <span class='op'>=</span> <span class='ident'>digit</span>().<span class='ident'>iter</span>(<span class='ident'>input</span>);
+    <span class='ident'>buffer</span>.<span class='ident'>extend</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>iter</span>);
+    <span class='kw'>let</span> <span class='ident'>i</span> <span class='op'>=</span> <span class='ident'>buffer</span>.<span class='ident'>parse</span>::<span class='op'>&lt;</span><span class='ident'>i32</span><span class='op'>&gt;</span>().<span class='ident'>unwrap</span>();
+    <span class='ident'>iter</span>.<span class='ident'>into_result</span>(<span class='ident'>i</span>)
+});
+<span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>sep_by</span>(<span class='ident'>number</span>, <span class='ident'>char</span>(<span class='string'>&#39;,&#39;</span>))
+    .<span class='ident'>parse</span>(<span class='string'>&quot;123,45,6&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>result</span>, <span class='prelude-val'>Ok</span>((<span class='macro'>vec</span><span class='macro'>!</span>[<span class='number'>123</span>, <span class='number'>45</span>, <span class='number'>6</span>], <span class='string'>&quot;&quot;</span>)));<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;P:&nbsp;<a class='trait' href='../../combine/trait.Parser.html' title='combine::Parser'>Parser</a>&gt; ParserExt for P</code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/combine/combinator/trait.ParserExt.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "combine";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
